@@ -26,9 +26,9 @@ class ViewController: UIViewController {
     }
 
     @objc func moveAnimation(){
-        UIView.animate(withDuration: 0.4, delay: 0.2, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.didChangePos()
-        }) { (nil) in
+        }) { (isFinished) in
             
         }
     }
@@ -41,13 +41,13 @@ class ViewController: UIViewController {
         
         circle.center = CGPoint(x: randomX, y: randomY)
         
-        //ganti opacity ALPHA
+        // ganti opacity ALPHA
         let alpha = Float.random(in: 0.5...1)
         circle.alpha = CGFloat(alpha)
         
         // ganti warna BACKGROUND COLOR
         let colors:[UIColor] = [.blue, .black, .red, .yellow, .green, .brown]
-        // bisa pakai COLOR LITERAL, muncul box trs double click
+        // ^ bisa pakai COLOR LITERAL, muncul box trs double click
         
         let randomInt = Int.random(in: 0...5)
         circle.backgroundColor = colors[randomInt]
